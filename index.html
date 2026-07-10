@@ -58,11 +58,11 @@
   .xlabels span{position:absolute;transform:translateX(-50%);font-weight:500;font-size:24px;line-height:1.6;color:var(--gray);letter-spacing:-0.72px;white-space:nowrap;}
   .xnote{text-align:center;font-weight:400;font-size:20px;color:#9aa0a4;margin-top:2px;}
 
-  .circle{position:absolute;width:150px;height:152px;border-radius:50%;
+  .circle{position:absolute;width:130px;height:132px;border-radius:50%;
           background:var(--orange-deep);display:flex;flex-direction:column;align-items:center;
           justify-content:center;color:#fff;line-height:1.19;letter-spacing:-1.03px;z-index:3;}
-  .circle .pct{font-weight:600;font-size:51px;}
-  .circle .lab{font-weight:600;font-size:34px;}
+  .circle .pct{font-weight:600;font-size:44px;}
+  .circle .lab{font-weight:600;font-size:29px;}
   .cap{text-align:center;font-weight:500;font-size:40px;letter-spacing:-1.3px;color:#000;margin-top:20px;word-break:keep-all;}
   .cap b{color:var(--orange);font-weight:700;}
 
@@ -232,9 +232,9 @@ requestAnimationFrame(()=>{
     for(let k=1;k<N;k++){const t=k/N;svg.appendChild(svgel('circle',{cx:(x0+dx*t).toFixed(1),cy:(y0+dy*t).toFixed(1),r:2.4,fill:'#5f6fa8'}));}
     [[x0,y0],[x1,y1]].forEach(([cx,cy])=>svg.appendChild(svgel('circle',{cx,cy,r:6,fill:'#5f6fa8'})));
     plot.appendChild(svg);
-    // orange badge floats in the TOP-RIGHT, shifted further right (+60px) so it clears the after-bar & dotted-line endpoint
+    // orange badge sits in the TOP-RIGHT CORNER, fully INSIDE the plot (right edge 10px from plot edge → never clips when the page is cropped); smaller size keeps it clear of the after-bar/dotted-line below
     const b=document.createElement('div');b.className='circle';b.innerHTML=`<span class="pct">${c.pct}</span><span class="lab">감소</span>`;
-    b.style.left=(ox+W-106)+'px';b.style.top=(oy+12)+'px';ch.appendChild(b);
+    b.style.left=(ox+W-140)+'px';b.style.top=(oy+12)+'px';ch.appendChild(b);
     // align x-labels under each bar center
     const labs=ch.querySelectorAll('.xlabels span');
     if(labs[0])labs[0].style.left=x0+'px'; if(labs[1])labs[1].style.left=x1+'px';
