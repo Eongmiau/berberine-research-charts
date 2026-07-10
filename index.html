@@ -32,7 +32,8 @@
   /* full-width line charts */
   .solo{margin-top:300px;}
 
-  .chart{position:relative;display:flex;align-items:flex-start;gap:16px;}
+  /* right spacer = y-label column (30) + gap (16) → balances the left axis labels so the CARD/plot sits at the true visual center, not the label-inclusive bounding box */
+  .chart{position:relative;display:flex;align-items:flex-start;gap:16px;padding-right:46px;}
   .ylabels{position:relative;width:30px;flex:none;height:377.41px;margin-top:67px;}
   .ylabels span{position:absolute;right:0;transform:translateY(-50%);width:30px;text-align:right;
                 font-weight:300;font-size:19.79px;line-height:1;color:var(--gray);letter-spacing:-0.594px;}
