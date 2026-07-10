@@ -232,9 +232,9 @@ requestAnimationFrame(()=>{
     for(let k=1;k<N;k++){const t=k/N;svg.appendChild(svgel('circle',{cx:(x0+dx*t).toFixed(1),cy:(y0+dy*t).toFixed(1),r:2.4,fill:'#5f6fa8'}));}
     [[x0,y0],[x1,y1]].forEach(([cx,cy])=>svg.appendChild(svgel('circle',{cx,cy,r:6,fill:'#5f6fa8'})));
     plot.appendChild(svg);
-    // orange badge floats in the TOP-RIGHT, clear of both bars (after-bar stays fully visible)
+    // orange badge floats in the TOP-RIGHT, shifted further right (+60px) so it clears the after-bar & dotted-line endpoint
     const b=document.createElement('div');b.className='circle';b.innerHTML=`<span class="pct">${c.pct}</span><span class="lab">감소</span>`;
-    b.style.left=(ox+W-166)+'px';b.style.top=(oy+12)+'px';ch.appendChild(b);
+    b.style.left=(ox+W-106)+'px';b.style.top=(oy+12)+'px';ch.appendChild(b);
     // align x-labels under each bar center
     const labs=ch.querySelectorAll('.xlabels span');
     if(labs[0])labs[0].style.left=x0+'px'; if(labs[1])labs[1].style.left=x1+'px';
